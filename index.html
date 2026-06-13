@@ -1,198 +1,292 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Movie Date?</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: Arial, sans-serif;
-      background: radial-gradient(circle at top, #2b2b2b, #000);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      overflow: hidden;
-      color: white;
-    }
+<title>Yaren ❤️</title>
 
-    .spotlight {
-      position: fixed;
-      width: 350px;
-      height: 350px;
-      background: rgba(255,255,255,0.12);
-      border-radius: 50%;
-      filter: blur(20px);
-      top: -80px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
+<style>
 
-    .box {
-      position: relative;
-      z-index: 2;
-      background: rgba(255,255,255,0.08);
-      width: 90%;
-      max-width: 420px;
-      padding: 35px 25px;
-      border-radius: 30px;
-      box-shadow: 0 15px 40px rgba(255,255,255,0.15);
-      border: 1px solid rgba(255,255,255,0.2);
-    }
+body{
+    margin:0;
+    min-height:100vh;
+    font-family:Arial,sans-serif;
+    background:radial-gradient(circle at top,#2b2b2b,#000);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    overflow:hidden;
+    color:white;
+    padding:20px;
+}
 
-    .emoji {
-      font-size: 58px;
-      margin-bottom: 10px;
-    }
+.stars{
+    position:fixed;
+    inset:0;
+    background-image:
+    radial-gradient(white 1px,transparent 1px),
+    radial-gradient(white 1px,transparent 1px);
+    background-size:60px 60px,100px 100px;
+    opacity:.22;
+}
 
-    h1 {
-      font-size: 30px;
-      margin: 10px 0;
-      color: #ffffff;
-    }
+.spotlight{
+    position:fixed;
+    width:420px;
+    height:420px;
+    background:rgba(255,255,255,.13);
+    border-radius:50%;
+    filter:blur(30px);
+    top:-100px;
+    left:50%;
+    transform:translateX(-50%);
+}
 
-    h2 {
-      font-size: 24px;
-      color: #ffdf6c;
-      margin: 15px 0;
-    }
+.box{
+    position:relative;
+    z-index:2;
+    width:100%;
+    max-width:430px;
+    padding:28px 22px;
+    border-radius:30px;
+    background:rgba(255,255,255,.09);
+    box-shadow:0 15px 45px rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.22);
+}
 
-    p {
-      color: #eeeeee;
-      font-size: 18px;
-      line-height: 1.5;
-    }
+.photo{
+    width:190px;
+    height:190px;
+    object-fit:cover;
+    border-radius:50%;
+    border:5px solid #ffdf6c;
+    box-shadow:0 0 30px rgba(255,223,108,.45);
+    margin-bottom:15px;
+}
 
-    .mj {
-      font-size: 42px;
-      margin: 15px 0;
-      animation: dance 1s infinite alternate;
-    }
+h1{
+    font-size:30px;
+    margin:10px 0;
+}
 
-    @keyframes dance {
-      from { transform: rotate(-7deg) translateX(-4px); }
-      to { transform: rotate(7deg) translateX(4px); }
-    }
+h2{
+    font-size:24px;
+    color:#ffdf6c;
+    margin:15px 0;
+}
 
-    .buttons {
-      margin-top: 25px;
-      position: relative;
-      height: 95px;
-    }
+p{
+    font-size:17px;
+    line-height:1.5;
+    color:#eee;
+}
 
-    button {
-      border: none;
-      border-radius: 35px;
-      padding: 14px 22px;
-      font-size: 17px;
-      cursor: pointer;
-      transition: 0.25s;
-    }
+.dance{
+    font-size:45px;
+    margin:15px 0;
+    animation:dance .8s infinite alternate;
+}
 
-    #yes {
-      background: #ffdf6c;
-      color: #111;
-      font-weight: bold;
-      position: absolute;
-      left: 20px;
-      top: 20px;
+@keyframes dance{
+    from{
+        transform:rotate(-8deg) translateX(-4px);
     }
+    to{
+        transform:rotate(8deg) translateX(4px);
+    }
+}
 
-    #no {
-      background: white;
-      color: #111;
-      position: absolute;
-      right: 20px;
-      top: 20px;
-    }
+.buttons{
+    margin-top:25px;
+    position:relative;
+    height:95px;
+}
 
-    .stars {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background-image:
-        radial-gradient(white 1px, transparent 1px),
-        radial-gradient(white 1px, transparent 1px);
-      background-size: 60px 60px, 100px 100px;
-      opacity: 0.25;
-    }
-  </style>
+button{
+    border:none;
+    border-radius:35px;
+    padding:14px 20px;
+    font-size:16px;
+    cursor:pointer;
+    transition:.25s;
+}
+
+#yes{
+    background:#ffdf6c;
+    color:#111;
+    font-weight:bold;
+    position:absolute;
+    left:10px;
+    top:20px;
+}
+
+#no{
+    background:white;
+    color:#111;
+    position:absolute;
+    right:10px;
+    top:20px;
+}
+
+</style>
 </head>
 
 <body>
-  <div class="stars"></div>
-  <div class="spotlight"></div>
 
-  <div class="box">
-    <div class="emoji">🎬🍿✨</div>
+<div class="stars"></div>
+<div class="spotlight"></div>
 
-    <h1>Hey meine Liebe ❤️</h1>
+<div class="box">
 
-    <p>Ich habe heute eine ganz wichtige Film-Frage an dich...</p>
+<img src="IMG_2254.jpeg" class="photo">
 
-    <div class="mj">🕺</div>
+<h1>Hey Yaren ❤️</h1>
 
-    <h2>Willst du heute mit mir in den Michael-Jackson-Film gehen?</h2>
+<p>
+Ich habe eine kleine Überraschung für dich...
+</p>
 
-    <p>Popcorn, Kino, Musik und du neben mir. Das wäre heute mein perfekter Abend. ❤️</p>
+<div class="dance">🕺✨🎬</div>
 
-    <div class="buttons">
-      <button id="yes" onclick="sayYes()">Ja, let's go 💛</button>
-      <button id="no" onclick="moveNo()" onmouseover="moveNo()">Nein</button>
-    </div>
-  </div>
+<h2>
+Willst du heute mit mir in den Michael-Jackson-Film?
+</h2>
 
-  <script>
-    let yesSize = 1;
+<p>
+Ein bisschen Popcorn 🍿,<br>
+ein bisschen Michael Jackson 🕺<br>
+und ganz viel Zeit mit dir ❤️
+</p>
 
-    function sayYes() {
-      document.body.innerHTML = `
-        <div style="
-          min-height:100vh;
-          display:flex;
-          justify-content:center;
-          align-items:center;
-          text-align:center;
-          font-family:Arial, sans-serif;
-          background:radial-gradient(circle at top,#2b2b2b,#000);
-          color:white;
-          padding:20px;
-        ">
-          <div style="
-            background:rgba(255,255,255,0.08);
-            width:90%;
-            max-width:420px;
-            padding:35px 25px;
-            border-radius:30px;
-            box-shadow:0 15px 40px rgba(255,255,255,0.15);
-            border:1px solid rgba(255,255,255,0.2);
-          ">
-            <div style="font-size:60px;">🕺🎬🍿</div>
-            <h1 style="color:#ffdf6c;">Hee-hee, jaaa! 💛</h1>
-            <p style="font-size:20px;color:#eee;">Dann ist es offiziell ein Kino-Date.</p>
-            <p style="font-size:18px;color:#eee;">Ich freue mich auf den Abend mit dir. ❤️</p>
-          </div>
-        </div>
-      `;
-    }
+<p style="color:#ffdf6c;font-weight:bold;">
+Ich würde mich riesig freuen.
+</p>
 
-    function moveNo() {
-      const noButton = document.getElementById("no");
-      const yesButton = document.getElementById("yes");
+<div class="buttons">
+    <button id="yes" onclick="sayYes()">
+        Ja, let's go 💛
+    </button>
 
-      const x = Math.random() * 220;
-      const y = Math.random() * 60;
+    <button id="no"
+        onclick="moveNo()"
+        onmouseover="moveNo()">
+        Nein
+    </button>
+</div>
 
-      noButton.style.left = x + "px";
-      noButton.style.top = y + "px";
-      noButton.style.right = "auto";
+</div>
 
-      yesSize += 0.1;
-      yesButton.style.transform = "scale(" + yesSize + ")";
-    }
-  </script>
+<script>
+
+let yesSize = 1;
+
+const noTexts = [
+    "Bist du sicher? 😳",
+    "Wirklich? 🥺",
+    "Denk nochmal nach ❤️",
+    "Komm schon 😌",
+    "Der Film wird gut 🍿",
+    "Yaren bitte 😭",
+    "Nur ein kleiner Film 🥹"
+];
+
+function sayYes(){
+
+document.body.innerHTML = `
+
+<div style="
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+font-family:Arial,sans-serif;
+background:radial-gradient(circle at top,#2b2b2b,#000);
+padding:20px;
+color:white;
+">
+
+<div style="
+background:rgba(255,255,255,.09);
+width:100%;
+max-width:430px;
+padding:30px 22px;
+border-radius:30px;
+box-shadow:0 15px 45px rgba(255,255,255,.14);
+border:1px solid rgba(255,255,255,.22);
+">
+
+<img
+src='IMG_2254.jpeg'
+style='
+width:190px;
+height:190px;
+object-fit:cover;
+border-radius:50%;
+border:5px solid #ffdf6c;
+box-shadow:0 0 30px rgba(255,223,108,.45);
+margin-bottom:15px;
+'>
+
+<div style="font-size:55px;">
+🕺🎬🍿
+</div>
+
+<h1 style="color:#ffdf6c;">
+HEE HEE! 🕺💛
+</h1>
+
+<p style="font-size:22px;">
+Mission erfolgreich ❤️
+</p>
+
+<p style="font-size:18px;">
+Yaren + Adam + Michael Jackson + Popcorn
+</p>
+
+<p style="
+font-size:18px;
+color:#ffdf6c;
+">
+= perfekter Abend ✨
+</p>
+
+<p style="font-size:28px;">
+🍿❤️🎬🕺
+</p>
+
+</div>
+</div>
+`;
+}
+
+function moveNo(){
+
+const noButton =
+document.getElementById("no");
+
+const yesButton =
+document.getElementById("yes");
+
+const x = Math.random()*220;
+const y = Math.random()*60;
+
+noButton.style.left = x + "px";
+noButton.style.top = y + "px";
+noButton.style.right = "auto";
+
+noButton.innerText =
+noTexts[Math.floor(Math.random()*noTexts.length)];
+
+yesSize += 0.1;
+
+yesButton.style.transform =
+"scale(" + yesSize + ")";
+}
+
+</script>
+
 </body>
 </html>
