@@ -1,115 +1,73 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kino Date?</title>
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
-      height: 100vh;
-      font-family: "Trebuchet MS", Arial, sans-serif;
-      background: linear-gradient(135deg, #ff758c, #ff7eb3, #ffb199);
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff6f91, #ff9671);
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
       overflow: hidden;
-      color: white;
-    }
-
-    .background {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      overflow: hidden;
-    }
-
-    .heart {
-      position: absolute;
-      font-size: 28px;
-      animation: float 8s linear infinite;
-      opacity: 0.75;
-    }
-
-    .heart:nth-child(1) { left: 10%; animation-delay: 0s; }
-    .heart:nth-child(2) { left: 25%; animation-delay: 2s; }
-    .heart:nth-child(3) { left: 45%; animation-delay: 4s; }
-    .heart:nth-child(4) { left: 65%; animation-delay: 1s; }
-    .heart:nth-child(5) { left: 85%; animation-delay: 3s; }
-
-    @keyframes float {
-      0% {
-        bottom: -50px;
-        transform: translateX(0) scale(1);
-      }
-      50% {
-        transform: translateX(30px) scale(1.3);
-      }
-      100% {
-        bottom: 110%;
-        transform: translateX(-30px) scale(1);
-      }
     }
 
     .box {
-      position: relative;
-      z-index: 2;
+      background: white;
       width: 90%;
-      max-width: 420px;
-      padding: 35px 28px;
+      max-width: 390px;
+      padding: 35px 25px;
       border-radius: 30px;
-      background: rgba(255, 255, 255, 0.22);
-      backdrop-filter: blur(15px);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
-      border: 1px solid rgba(255, 255, 255, 0.35);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.25);
     }
 
     .emoji {
       font-size: 55px;
-      animation: pulse 1.3s infinite;
+      margin-bottom: 10px;
     }
 
     h1 {
+      color: #ff4f81;
       font-size: 30px;
-      margin: 15px 0 10px;
+      margin: 10px 0;
     }
 
     h2 {
+      color: #333;
       font-size: 25px;
       margin: 15px 0;
     }
 
     p {
+      color: #555;
       font-size: 18px;
       line-height: 1.5;
-      margin: 10px 0;
     }
 
     .buttons {
-      margin-top: 28px;
+      margin-top: 25px;
       position: relative;
-      height: 95px;
+      height: 90px;
     }
 
     button {
-      padding: 14px 24px;
       border: none;
-      border-radius: 40px;
-      font-size: 18px;
+      border-radius: 35px;
+      padding: 14px 24px;
+      font-size: 17px;
       cursor: pointer;
-      transition: 0.3s ease;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      transition: 0.25s;
     }
 
     #yes {
-      background: white;
-      color: #ff4f81;
+      background: #ff4f81;
+      color: white;
       font-weight: bold;
       position: absolute;
       left: 25px;
@@ -117,48 +75,31 @@
     }
 
     #no {
-      background: rgba(255, 255, 255, 0.75);
+      background: #eeeeee;
       color: #333;
       position: absolute;
       right: 25px;
       top: 20px;
     }
-
-    #yes:hover {
-      transform: scale(1.08);
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.18); }
-      100% { transform: scale(1); }
-    }
   </style>
 </head>
 
 <body>
-  <div class="background">
-    <div class="heart">❤️</div>
-    <div class="heart">🍿</div>
-    <div class="heart">🎬</div>
-    <div class="heart">💕</div>
-    <div class="heart">✨</div>
-  </div>
 
   <div class="box">
-    <div class="emoji">🎬🍿</div>
+    <div class="emoji">🍿🎬❤️</div>
 
-    <h1>Hey meine Liebe ❤️</h1>
+    <h1>Hey meine Liebe</h1>
 
-    <p>Ich habe eine kleine, aber sehr wichtige Frage an dich...</p>
+    <p>Ich habe eine kleine Frage an dich...</p>
 
     <h2>Willst du heute mit mir ins Kino gehen?</h2>
 
-    <p>Ein bisschen Popcorn, ein guter Film und du. Mehr brauche ich heute nicht. ❤️</p>
+    <p>Ein guter Film, Popcorn und du. Mehr brauche ich heute nicht. ❤️</p>
 
     <div class="buttons">
       <button id="yes" onclick="sayYes()">Ja, natürlich 💕</button>
-      <button id="no" onmouseover="moveNo()" onclick="moveNo()">Nein</button>
+      <button id="no" onclick="moveNo()" onmouseover="moveNo()">Nein</button>
     </div>
   </div>
 
@@ -168,31 +109,26 @@
     function sayYes() {
       document.body.innerHTML = `
         <div style="
-          height:100vh;
+          min-height:100vh;
           display:flex;
           justify-content:center;
           align-items:center;
           text-align:center;
-          font-family:'Trebuchet MS', Arial, sans-serif;
-          background:linear-gradient(135deg,#ff758c,#ff7eb3,#ffb199);
-          color:white;
-          overflow:hidden;
+          font-family:Arial, sans-serif;
+          background:linear-gradient(135deg,#ff6f91,#ff9671);
         ">
           <div style="
+            background:white;
             width:90%;
-            max-width:420px;
-            padding:35px 28px;
+            max-width:390px;
+            padding:35px 25px;
             border-radius:30px;
-            background:rgba(255,255,255,0.22);
-            backdrop-filter:blur(15px);
-            box-shadow:0 12px 40px rgba(0,0,0,0.25);
-            border:1px solid rgba(255,255,255,0.35);
+            box-shadow:0 15px 35px rgba(0,0,0,0.25);
           ">
             <div style="font-size:60px;">❤️🍿🎬</div>
-            <h1>Jaaaa ❤️</h1>
-            <p style="font-size:21px;">Dann ist es ein Date.</p>
-            <p style="font-size:18px;">Ich freue mich auf heute Abend mit dir.</p>
-            <p style="font-size:30px;">💕✨💕</p>
+            <h1 style="color:#ff4f81;">Jaaaa ❤️</h1>
+            <p style="font-size:20px;color:#555;">Dann ist es ein Date.</p>
+            <p style="font-size:18px;color:#555;">Ich freue mich auf heute Abend mit dir.</p>
           </div>
         </div>
       `;
@@ -202,16 +138,17 @@
       const noButton = document.getElementById("no");
       const yesButton = document.getElementById("yes");
 
-      const x = Math.random() * 230;
-      const y = Math.random() * 60;
+      const x = Math.random() * 210;
+      const y = Math.random() * 55;
 
       noButton.style.left = x + "px";
       noButton.style.top = y + "px";
       noButton.style.right = "auto";
 
-      yesSize += 0.12;
-      yesButton.style.transform = `scale(${yesSize})`;
+      yesSize += 0.1;
+      yesButton.style.transform = "scale(" + yesSize + ")";
     }
   </script>
+
 </body>
 </html>
