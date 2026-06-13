@@ -140,4 +140,78 @@
   <div class="background">
     <div class="heart">❤️</div>
     <div class="heart">🍿</div>
-    <div class="heart">🎬</
+    <div class="heart">🎬</div>
+    <div class="heart">💕</div>
+    <div class="heart">✨</div>
+  </div>
+
+  <div class="box">
+    <div class="emoji">🎬🍿</div>
+
+    <h1>Hey meine Liebe ❤️</h1>
+
+    <p>Ich habe eine kleine, aber sehr wichtige Frage an dich...</p>
+
+    <h2>Willst du heute mit mir ins Kino gehen?</h2>
+
+    <p>Ein bisschen Popcorn, ein guter Film und du. Mehr brauche ich heute nicht. ❤️</p>
+
+    <div class="buttons">
+      <button id="yes" onclick="sayYes()">Ja, natürlich 💕</button>
+      <button id="no" onmouseover="moveNo()" onclick="moveNo()">Nein</button>
+    </div>
+  </div>
+
+  <script>
+    let yesSize = 1;
+
+    function sayYes() {
+      document.body.innerHTML = `
+        <div style="
+          height:100vh;
+          display:flex;
+          justify-content:center;
+          align-items:center;
+          text-align:center;
+          font-family:'Trebuchet MS', Arial, sans-serif;
+          background:linear-gradient(135deg,#ff758c,#ff7eb3,#ffb199);
+          color:white;
+          overflow:hidden;
+        ">
+          <div style="
+            width:90%;
+            max-width:420px;
+            padding:35px 28px;
+            border-radius:30px;
+            background:rgba(255,255,255,0.22);
+            backdrop-filter:blur(15px);
+            box-shadow:0 12px 40px rgba(0,0,0,0.25);
+            border:1px solid rgba(255,255,255,0.35);
+          ">
+            <div style="font-size:60px;">❤️🍿🎬</div>
+            <h1>Jaaaa ❤️</h1>
+            <p style="font-size:21px;">Dann ist es ein Date.</p>
+            <p style="font-size:18px;">Ich freue mich auf heute Abend mit dir.</p>
+            <p style="font-size:30px;">💕✨💕</p>
+          </div>
+        </div>
+      `;
+    }
+
+    function moveNo() {
+      const noButton = document.getElementById("no");
+      const yesButton = document.getElementById("yes");
+
+      const x = Math.random() * 230;
+      const y = Math.random() * 60;
+
+      noButton.style.left = x + "px";
+      noButton.style.top = y + "px";
+      noButton.style.right = "auto";
+
+      yesSize += 0.12;
+      yesButton.style.transform = `scale(${yesSize})`;
+    }
+  </script>
+</body>
+</html>
